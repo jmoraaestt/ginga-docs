@@ -7,6 +7,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
+        "jmoraaestt/ginga": "@dev",
         "laravel/framework": "^13.17",
         "laravel/tinker": "^3.0"
     },
@@ -82,5 +83,11 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": {
+        "ginga": {
+            "type": "path",
+            "url": "../ginga"
+        }
+    }
 }
