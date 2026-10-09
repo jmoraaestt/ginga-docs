@@ -49,13 +49,15 @@ class ExportarDocs extends Command
     {
         $resposta = $kernel->handle($this->requisicao($uri));
 
-        if (! $resposta->isOk()) {
-            $this->error("Falhou: {$uri} ({$resposta->getStatusCode()})");
-            return;
+        File::ensureDirectoryExists(dirname($arquivo));
+
+        if ($resposta instanceof BinaryFileResponse) {
+            // Resposta de arquivo: copia o arquivo original
+            File::copy($resposta->getFile()->getPathname(), $arquivo);
+        } else {
+            File::put($arquivo, $resposta->getContent());
         }
 
-        File::ensureDirectoryExists(dirname($arquivo));
-        File::put($arquivo, $resposta->getContent());
         $this->line("  {$uri}");
     }
 

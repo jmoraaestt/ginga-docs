@@ -1,0 +1,329 @@
+/*
+ * Tema Ginga para Bootstrap 5.3
+ * Carregue DEPOIS do CSS do Bootstrap para que estas regras tenham prioridade.
+ */
+
+/* Tokens da paleta (claro) */
+:root,
+[data-bs-theme="light"] {
+    --ginga-rosa: #C9306F;
+    --ginga-rosa-rgb: 201, 48, 111;
+    --ginga-rosa-hover: #AE2660;
+    --ginga-rosa-active: #962052;
+    --ginga-rosa-vivo: #E84A8A; /* identidade: logo, capa, posts (não usar atrás de texto pequeno) */
+    --ginga-rosa-claro: #F9D7E5;
+    --ginga-on-rosa: #FFFFFF;
+    --ginga-verde-agua: #187A6B;
+    --ginga-verde-agua-rgb: 24, 122, 107;
+    --ginga-verde-agua-claro: #D4EDE9;
+    --ginga-verde-agua-borda: #A9D9D1;
+    --ginga-verde-agua-texto: #0F5249;
+    --ginga-ambar: #E0A100;
+    --ginga-ambar-rgb: 224, 161, 0;
+    --ginga-ambar-claro: #FCEFCC;
+    --ginga-ambar-borda: #F7DD99;
+    --ginga-ambar-texto: #6B4D00;
+    --ginga-perigo: #C2362B;
+    --ginga-perigo-rgb: 194, 54, 43;
+    --ginga-perigo-claro: #F6D9D7;
+    --ginga-perigo-borda: #EDB3AE;
+    --ginga-perigo-texto: #8A261E;
+    --ginga-tinta: #2D2A32;
+    --ginga-tinta-rgb: 45, 42, 50;
+    --ginga-tinta-suave: #6B6470;
+    --ginga-borda: #EADCE3;
+    --ginga-superficie: #FFF8FB;
+    --ginga-superficie-rgb: 255, 248, 251;
+    --ginga-superficie-alta: #FFFFFF;
+}
+
+/* Tokens da paleta (escuro) */
+[data-bs-theme="dark"] {
+    --ginga-rosa: #F0699F;
+    --ginga-rosa-rgb: 240, 105, 159;
+    --ginga-rosa-hover: #F487B2;
+    --ginga-rosa-active: #F487B2; /* a paleta não define active no escuro: usa o hover */
+    --ginga-rosa-vivo: #E84A8A;
+    --ginga-rosa-claro: #4A2235;
+    --ginga-on-rosa: #1C1A1F;
+    --ginga-verde-agua: #4CC3AE;
+    --ginga-verde-agua-rgb: 76, 195, 174;
+    --ginga-verde-agua-claro: #10302B;
+    --ginga-verde-agua-borda: #1E5C52;
+    --ginga-verde-agua-texto: #8DDBCD;
+    --ginga-ambar: #F2BE3A;
+    --ginga-ambar-rgb: 242, 190, 58;
+    --ginga-ambar-claro: #3D3010;
+    --ginga-ambar-borda: #6B5420;
+    --ginga-ambar-texto: #F7D57F;
+    --ginga-perigo: #F07468;
+    --ginga-perigo-rgb: 240, 116, 104;
+    --ginga-perigo-claro: #3F1D1A;
+    --ginga-perigo-borda: #7A3530;
+    --ginga-perigo-texto: #F6ABA4;
+    --ginga-tinta: #F5EEF2;
+    --ginga-tinta-rgb: 245, 238, 242;
+    --ginga-tinta-suave: #B5ACB3;
+    --ginga-borda: #3A3540;
+    --ginga-superficie: #1C1A1F;
+    --ginga-superficie-rgb: 28, 26, 31;
+    --ginga-superficie-alta: #26232A;
+}
+
+/* Tokens -> variáveis do Bootstrap (vale para os dois temas) */
+:root,
+[data-bs-theme="light"],
+[data-bs-theme="dark"] {
+    --bs-primary: var(--ginga-rosa);
+    --bs-primary-rgb: var(--ginga-rosa-rgb);
+    --bs-primary-bg-subtle: var(--ginga-rosa-claro);
+    --bs-primary-border-subtle: var(--ginga-rosa-claro);
+    --bs-primary-text-emphasis: var(--ginga-rosa-hover);
+    --bs-success: var(--ginga-verde-agua);
+    --bs-success-rgb: var(--ginga-verde-agua-rgb);
+    --bs-success-bg-subtle: var(--ginga-verde-agua-claro);
+    --bs-success-border-subtle: var(--ginga-verde-agua-borda);
+    --bs-success-text-emphasis: var(--ginga-verde-agua-texto);
+    --bs-warning: var(--ginga-ambar);
+    --bs-warning-rgb: var(--ginga-ambar-rgb);
+    --bs-warning-bg-subtle: var(--ginga-ambar-claro);
+    --bs-warning-border-subtle: var(--ginga-ambar-borda);
+    --bs-warning-text-emphasis: var(--ginga-ambar-texto);
+    --bs-danger: var(--ginga-perigo);
+    --bs-danger-rgb: var(--ginga-perigo-rgb);
+    --bs-danger-bg-subtle: var(--ginga-perigo-claro);
+    --bs-danger-border-subtle: var(--ginga-perigo-borda);
+    --bs-danger-text-emphasis: var(--ginga-perigo-texto);
+
+    --bs-body-color: var(--ginga-tinta);
+    --bs-body-color-rgb: var(--ginga-tinta-rgb);
+    --bs-body-bg: var(--ginga-superficie);
+    --bs-body-bg-rgb: var(--ginga-superficie-rgb);
+    --bs-emphasis-color: var(--ginga-tinta);
+    --bs-secondary-color: var(--ginga-tinta-suave);
+    --bs-border-color: var(--ginga-borda);
+
+    --bs-link-color: var(--ginga-rosa);
+    --bs-link-color-rgb: var(--ginga-rosa-rgb);
+    --bs-link-hover-color: var(--ginga-rosa-hover);
+    --bs-link-hover-color-rgb: var(--ginga-rosa-rgb);
+
+    --bs-focus-ring-color: rgba(var(--ginga-rosa-rgb), 0.25);
+}
+
+/* Superfícies elevadas */
+.card {
+    --bs-card-bg: var(--ginga-superficie-alta);
+}
+
+.modal {
+    --bs-modal-bg: var(--ginga-superficie-alta);
+}
+
+.dropdown-menu {
+    --bs-dropdown-bg: var(--ginga-superficie-alta);
+}
+
+/* Foco de inputs (o Bootstrap usa azul fixo) */
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+    border-color: var(--ginga-rosa);
+    box-shadow: 0 0 0 0.25rem var(--bs-focus-ring-color);
+}
+
+.form-control::placeholder {
+    color: var(--ginga-tinta-suave);
+}
+
+/*
+ * Select múltiplo: o navegador pinta a opção escolhida de cinza (sem foco) ou azul (com foco).
+ * O gradiente é necessário: o Chrome ignora background-color em opções selecionadas
+ */
+.form-select[multiple] option {
+    padding: 0.375rem 0.5rem;
+    border-radius: var(--bs-border-radius-sm);
+}
+
+.form-select[multiple] option:checked {
+    background: var(--ginga-rosa-claro) linear-gradient(0deg, var(--ginga-rosa-claro) 0%, var(--ginga-rosa-claro) 100%);
+    color: var(--bs-primary-text-emphasis);
+    font-weight: 600;
+}
+
+.form-select[multiple]:focus option:checked {
+    background: var(--ginga-rosa) linear-gradient(0deg, var(--ginga-rosa) 0%, var(--ginga-rosa) 100%);
+    color: var(--ginga-on-rosa);
+}
+
+/* Bolinha do switch em foco (o Bootstrap desenha em azul claro) */
+.form-switch .form-check-input:focus:not(:checked) {
+    --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23E498B7'/%3e%3c/svg%3e");
+}
+
+/* Botão de fechar em foco */
+.btn-close {
+    --bs-btn-close-focus-shadow: 0 0 0 0.25rem var(--bs-focus-ring-color);
+}
+
+/* Paginação: a página atual usa azul fixo */
+.pagination {
+    --bs-pagination-focus-color: var(--ginga-rosa-hover);
+    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem var(--bs-focus-ring-color);
+    --bs-pagination-active-color: var(--ginga-on-rosa);
+    --bs-pagination-active-bg: var(--ginga-rosa);
+    --bs-pagination-active-border-color: var(--ginga-rosa);
+}
+
+/* Badges sólidos: no escuro as cores ficam claras e o texto branco some */
+.text-bg-primary {
+    color: var(--ginga-on-rosa) !important;
+}
+
+[data-bs-theme="dark"] .text-bg-success,
+[data-bs-theme="dark"] .text-bg-danger {
+    color: #1C1A1F !important;
+}
+
+.text-bg-warning {
+    color: #2D2A32 !important;
+}
+
+.form-check-input:checked {
+    background-color: var(--ginga-rosa);
+    border-color: var(--ginga-rosa);
+}
+
+/*
+ * O Bootstrap compila as cores dos botões como valores fixos (ex.: #0d6efd),
+ * então trocar --bs-primary não basta: cada variante precisa reapontar
+ * suas variáveis --bs-btn-* para a paleta.
+ */
+
+/* Primário (rosa) */
+.btn-primary {
+    --bs-btn-color: var(--ginga-on-rosa);
+    --bs-btn-bg: var(--ginga-rosa);
+    --bs-btn-border-color: var(--ginga-rosa);
+    --bs-btn-hover-color: var(--ginga-on-rosa);
+    --bs-btn-hover-bg: var(--ginga-rosa-hover);
+    --bs-btn-hover-border-color: var(--ginga-rosa-hover);
+    --bs-btn-active-color: var(--ginga-on-rosa);
+    --bs-btn-active-bg: var(--ginga-rosa-active);
+    --bs-btn-active-border-color: var(--ginga-rosa-active);
+    --bs-btn-disabled-color: var(--ginga-on-rosa);
+    --bs-btn-disabled-bg: var(--ginga-rosa);
+    --bs-btn-disabled-border-color: var(--ginga-rosa);
+    --bs-btn-focus-shadow-rgb: var(--ginga-rosa-rgb);
+}
+
+/* Outline primário */
+.btn-outline-primary {
+    --bs-btn-color: var(--ginga-rosa);
+    --bs-btn-border-color: var(--ginga-rosa);
+    --bs-btn-hover-color: var(--ginga-on-rosa);
+    --bs-btn-hover-bg: var(--ginga-rosa);
+    --bs-btn-hover-border-color: var(--ginga-rosa);
+    --bs-btn-active-color: var(--ginga-on-rosa);
+    --bs-btn-active-bg: var(--ginga-rosa-hover);
+    --bs-btn-active-border-color: var(--ginga-rosa-hover);
+    --bs-btn-disabled-color: var(--ginga-rosa);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--ginga-rosa);
+    --bs-btn-focus-shadow-rgb: var(--ginga-rosa-rgb);
+}
+
+/* Botão link */
+.btn-link {
+    --bs-btn-color: var(--ginga-rosa);
+    --bs-btn-hover-color: var(--ginga-rosa-hover);
+    --bs-btn-active-color: var(--ginga-rosa-hover);
+}
+
+/* Sucesso (verde-água) */
+.btn-success {
+    --bs-btn-color: #FFFFFF;
+    --bs-btn-bg: var(--ginga-verde-agua);
+    --bs-btn-border-color: var(--ginga-verde-agua);
+    --bs-btn-hover-color: #FFFFFF;
+    --bs-btn-hover-bg: #13665A;
+    --bs-btn-hover-border-color: #13665A;
+    --bs-btn-active-color: #FFFFFF;
+    --bs-btn-active-bg: #0F5249;
+    --bs-btn-active-border-color: #0F5249;
+    --bs-btn-disabled-color: #FFFFFF;
+    --bs-btn-disabled-bg: var(--ginga-verde-agua);
+    --bs-btn-disabled-border-color: var(--ginga-verde-agua);
+    --bs-btn-focus-shadow-rgb: var(--ginga-verde-agua-rgb);
+}
+
+/* Perigo */
+.btn-danger {
+    --bs-btn-color: #FFFFFF;
+    --bs-btn-bg: var(--ginga-perigo);
+    --bs-btn-border-color: var(--ginga-perigo);
+    --bs-btn-hover-color: #FFFFFF;
+    --bs-btn-hover-bg: #A52D24;
+    --bs-btn-hover-border-color: #A52D24;
+    --bs-btn-active-color: #FFFFFF;
+    --bs-btn-active-bg: #8A261E;
+    --bs-btn-active-border-color: #8A261E;
+    --bs-btn-disabled-color: #FFFFFF;
+    --bs-btn-disabled-bg: var(--ginga-perigo);
+    --bs-btn-disabled-border-color: var(--ginga-perigo);
+    --bs-btn-focus-shadow-rgb: var(--ginga-perigo-rgb);
+}
+
+/* Outline perigo (botão de excluir) */
+.btn-outline-danger {
+    --bs-btn-color: var(--ginga-perigo);
+    --bs-btn-border-color: var(--ginga-perigo);
+    --bs-btn-hover-color: #FFFFFF;
+    --bs-btn-hover-bg: var(--ginga-perigo);
+    --bs-btn-hover-border-color: var(--ginga-perigo);
+    --bs-btn-active-color: #FFFFFF;
+    --bs-btn-active-bg: #A52D24;
+    --bs-btn-active-border-color: #A52D24;
+    --bs-btn-disabled-color: var(--ginga-perigo);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--ginga-perigo);
+    --bs-btn-focus-shadow-rgb: var(--ginga-perigo-rgb);
+}
+
+[data-bs-theme="dark"] .btn-outline-danger {
+    --bs-btn-hover-color: #1C1A1F;
+    --bs-btn-active-color: #1C1A1F;
+    --bs-btn-active-bg: color-mix(in srgb, var(--ginga-perigo) 75%, #fff);
+    --bs-btn-active-border-color: var(--bs-btn-active-bg);
+}
+
+/* Aviso (âmbar). Texto sempre em tinta escura, inclusive no tema escuro */
+.btn-warning {
+    --bs-btn-color: #2D2A32;
+    --bs-btn-bg: var(--ginga-ambar);
+    --bs-btn-border-color: var(--ginga-ambar);
+    --bs-btn-hover-color: #2D2A32;
+    --bs-btn-hover-bg: #C78F00;
+    --bs-btn-hover-border-color: #C78F00;
+    --bs-btn-active-color: #2D2A32;
+    --bs-btn-active-bg: #C78F00;
+    --bs-btn-active-border-color: #C78F00;
+    --bs-btn-disabled-color: #2D2A32;
+    --bs-btn-disabled-bg: var(--ginga-ambar);
+    --bs-btn-disabled-border-color: var(--ginga-ambar);
+    --bs-btn-focus-shadow-rgb: var(--ginga-ambar-rgb);
+}
+
+/* No escuro, as cores ficam claras: texto escuro por cima e hover/active mais claros */
+[data-bs-theme="dark"] .btn-success,
+[data-bs-theme="dark"] .btn-danger,
+[data-bs-theme="dark"] .btn-warning {
+    --bs-btn-color: #1C1A1F;
+    --bs-btn-hover-color: #1C1A1F;
+    --bs-btn-active-color: #1C1A1F;
+    --bs-btn-disabled-color: #1C1A1F;
+    --bs-btn-hover-bg: color-mix(in srgb, var(--bs-btn-bg) 85%, #fff);
+    --bs-btn-hover-border-color: var(--bs-btn-hover-bg);
+    --bs-btn-active-bg: color-mix(in srgb, var(--bs-btn-bg) 75%, #fff);
+    --bs-btn-active-border-color: var(--bs-btn-active-bg);
+}
